@@ -1,9 +1,170 @@
-@import 'tailwindcss';
+@font-face {
+    font-family: 'BlueSakura';
+    src: url('/fonts/BlueSakura.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: url('\public\images\bghor1.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+body,
+.timer,
+.time,
+.time p,
+.time h2 {
+    font-family: 'BlueSakura', sans-serif;
+}
+.timer{
+    margin: 0;
+    box-sizing: border-box;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 12px rgba(170, 225, 255, 0.55);
+}
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
+h2 {
+    font-size: clamp(2.2rem, 4vw, 5rem);
+    font-weight: 500;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 0.08em;
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+.timebox{
+    display: flex;
+    gap: clamp(1.2rem, 3vw, 4rem);
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.time{
+    text-align: center;
+    min-width: 100px;
+}
+
+.time p {
+    margin: 0.45rem 0 0;
+    font-size: clamp(0.9rem, 1.4vw, 1.5rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+.images{
+    display: flex;
+    justify-content: center;
+}
+.calc1, .calc2 {
+    position: fixed;
+    bottom: 2vh;
+    width: 19vw;
+    height: auto;
+    display: block;
+    z-index: 1;
+    filter: drop-shadow(0 0 8px rgba(113, 194, 248, 0.64));
+    
+}
+
+.calc1 {
+    left: 10vw;
+}
+
+.calc2 {
+    right: 10vw;
+}
+
+.titlu{
+    position: absolute;
+    width: 47vw;
+    height: auto;
+    
+}
+
+.lbloc, .rbloc{
+    position: relative;
+    
+    
+}
+.lbloc{
+    height: 103vh;
+    right: 25vw;
+}
+
+.rbloc{
+    transform: scaleX(-1);
+    height: 103vh;
+    left: 25vw;
+}
+
+.logoUT{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 13vw;
+    height: auto;
+    padding: 2vh 3vw;
+}
+.logoBEST{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 17vw;
+    height: auto;
+    
+}
+@media (max-width: 500px){
+    body {
+        background-image: url('\public\images\bg2vert.svg');
+    }
+
+    .calc1,
+    .calc2 {
+        width: 40vw;
+        
+        bottom: 6vh;
+    }
+
+    .calc1 {
+        left: 8vw;
+    }
+
+    .calc2 {
+        right: 8vw;
+    }
+    .titlu{
+        width: 70%;
+        top: 18vh;
+    }
+    .logoUT{
+    right: 20vw;
+    width: 20vw;
+    }
+    .logoBEST{
+    left: 20vw;
+    width: 30vw;
+    }
+    .timer{
+        top: 50vh;
+    }
+    .time h2, .time p {    
+        text-shadow: 0 0 14px rgba(170, 225, 255, 0.55);
+    }
+    .timebox{
+        gap: clamp(0.5rem, 2vw, 3rem);
+    }
 }
