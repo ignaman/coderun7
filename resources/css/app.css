@@ -4,14 +4,20 @@
     font-weight: normal;
     font-style: normal;
 }
+
+/* Stable viewport height unit: ignores mobile browser toolbars showing/hiding */
+:root {
+    --vh: 1vh;
+}
+
+@supports (height: 1svh) {
+    :root {
+        --vh: 1svh;
+    }
+}
+
 body {
     margin: 0;
-    min-height: 100vh;
-    background-image: url('\public\images\bghor1.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    overflow: hidden;
 }
 body,
 .timer,
@@ -20,24 +26,100 @@ body,
 .time h2 {
     font-family: 'BlueSakura', sans-serif;
 }
-.timer{
-    margin: 0;
+
+/* Background layer, pinned to the viewport so it always covers the screen */
+.scene {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background-image: url('\public\images\bghor1.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.lbloc, .rbloc {
+    position: absolute;
+    top: 0;
+    height: 103%;
+    width: auto;
+}
+.lbloc {
+    right: 75%;
+}
+
+.rbloc {
+    left: 75%;
+    transform: scaleX(-1);
+}
+
+/* Landscape layout (desktop, tablets and phones held sideways) */
+.page {
+    position: relative;
+    z-index: 1;
     box-sizing: border-box;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    padding:
+        env(safe-area-inset-top, 0px)
+        env(safe-area-inset-right, 0px)
+        env(safe-area-inset-bottom, 0px)
+        env(safe-area-inset-left, 0px);
+}
+
+.page img {
+    display: block;
+    height: auto;
+}
+
+.logoBEST{
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    align-self: start;
+    width: min(17vw, var(--vh) * 30);
+}
+.logoUT{
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+    align-self: start;
+    width: min(13vw, var(--vh) * 23);
+    margin: calc(var(--vh) * 2) 3vw;
+}
+
+.titlu{
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: center;
+    width: min(47vw, var(--vh) * 84);
+}
+
+.timer{
+    --num: clamp(1.5rem, min(4vw, var(--vh) * 7.1), 5rem);
+    --label: clamp(0.6rem, min(1.4vw, var(--vh) * 2.5), 1.5rem);
+    --gap: clamp(0.75rem, min(3vw, var(--vh) * 5.3), 4rem);
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    margin-bottom: calc(var(--vh) * 6);
+    position: relative;
     z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: #fff;
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     text-shadow: 0 0 12px rgba(170, 225, 255, 0.55);
 }
 
-h2 {
-    font-size: clamp(2.2rem, 4vw, 5rem);
+.time h2 {
+    font-size: var(--num);
     font-weight: 500;
     margin: 0;
     line-height: 1;
@@ -46,125 +128,105 @@ h2 {
 
 .timebox{
     display: flex;
-    gap: clamp(1.2rem, 3vw, 4rem);
+    gap: var(--gap);
     align-items: flex-end;
     justify-content: center;
 }
 
 .time{
     text-align: center;
-    min-width: 100px;
+    min-width: calc(var(--num) * 1.3);
 }
 
 .time p {
     margin: 0.45rem 0 0;
-    font-size: clamp(0.9rem, 1.4vw, 1.5rem);
+    font-size: var(--label);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.9);
 }
 
-
-.images{
-    display: flex;
-    justify-content: center;
-}
 .calc1, .calc2 {
-    position: fixed;
-    bottom: 2vh;
-    width: 19vw;
-    height: auto;
-    display: block;
-    z-index: 1;
+    grid-row: 2;
+    align-self: end;
+    width: min(19vw, var(--vh) * 34);
     filter: drop-shadow(0 0 8px rgba(113, 194, 248, 0.64));
-    
 }
 
 .calc1 {
-    left: 10vw;
+    grid-column: 1;
+    justify-self: start;
+    margin: 0 0 calc(var(--vh) * 2) 10vw;
 }
 
 .calc2 {
-    right: 10vw;
+    grid-column: 3;
+    justify-self: end;
+    margin: 0 10vw calc(var(--vh) * 2) 0;
 }
 
-.titlu{
-    position: absolute;
-    width: 47vw;
-    height: auto;
-    
-}
-
-.lbloc, .rbloc{
-    position: relative;
-    
-    
-}
-.lbloc{
-    height: 103vh;
-    right: 25vw;
-}
-
-.rbloc{
-    transform: scaleX(-1);
-    height: 103vh;
-    left: 25vw;
-}
-
-.logoUT{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 13vw;
-    height: auto;
-    padding: 2vh 3vw;
-}
-.logoBEST{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 17vw;
-    height: auto;
-    
-}
-@media (max-width: 500px){
-    body {
+/* Portrait layout (phones, tablets held upright): logos, title, timer, computers stacked */
+@media (orientation: portrait){
+    .scene {
         background-image: url('\public\images\bg2vert.svg');
     }
 
-    .calc1,
-    .calc2 {
-        width: 40vw;
-        
-        bottom: 6vh;
+    .lbloc, .rbloc {
+        top: auto;
+        bottom: 0;
+        height: 85%;
+    }
+
+    .page {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: auto auto 1fr auto;
+    }
+
+    .logoBEST{
+        grid-column: 1;
+        justify-self: end;
+        align-self: center;
+        width: min(30vw, var(--vh) * 14);
+        margin: calc(var(--vh) * 2) 3vw 0 0;
+    }
+    .logoUT{
+        grid-column: 2;
+        justify-self: start;
+        align-self: center;
+        width: min(20vw, var(--vh) * 9.5);
+        margin: calc(var(--vh) * 2) 0 0 3vw;
+    }
+
+    .titlu{
+        grid-row: 2;
+        width: min(78vw, var(--vh) * 40);
+        margin-top: calc(var(--vh) * 3);
+    }
+
+    .timer{
+        --num: clamp(1.75rem, min(11vw, var(--vh) * 6.5), 5rem);
+        --label: clamp(0.7rem, min(3.8vw, var(--vh) * 2.2), 1.4rem);
+        --gap: clamp(0.5rem, min(5vw, var(--vh) * 3), 3rem);
+        grid-column: 1 / -1;
+        grid-row: 3;
+        margin-bottom: 0;
+    }
+    .time h2, .time p {
+        text-shadow: 0 0 14px rgba(170, 225, 255, 0.55);
+    }
+
+    .calc1, .calc2 {
+        grid-row: 4;
+        width: min(40vw, var(--vh) * 22);
     }
 
     .calc1 {
-        left: 8vw;
+        grid-column: 1;
+        margin: 0 0 calc(var(--vh) * 4) 8vw;
     }
 
     .calc2 {
-        right: 8vw;
-    }
-    .titlu{
-        width: 70%;
-        top: 18vh;
-    }
-    .logoUT{
-    right: 20vw;
-    width: 20vw;
-    }
-    .logoBEST{
-    left: 20vw;
-    width: 30vw;
-    }
-    .timer{
-        top: 50vh;
-    }
-    .time h2, .time p {    
-        text-shadow: 0 0 14px rgba(170, 225, 255, 0.55);
-    }
-    .timebox{
-        gap: clamp(0.5rem, 2vw, 3rem);
+        grid-column: 2;
+        margin: 0 8vw calc(var(--vh) * 4) 0;
     }
 }
