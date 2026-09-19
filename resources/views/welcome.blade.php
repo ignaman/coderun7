@@ -15,8 +15,8 @@
         <img src="/images/skyscrapersLEFT.svg" class="rbloc" alt="">
     </div>
     <main class="page">
-        <img src="/images/BESTCJ_signature_black.png" class="logoBEST" alt="BEST Cluj-Napoca">
-        <img src="/images/UT_Logo_black.png" class="logoUT" alt="Universitatea Tehnica din Cluj-Napoca">
+        <img src="/images/BESTCJ_signature_white.png" class="logoBEST" alt="BEST Cluj-Napoca">
+        <img src="/images/UT_Logo_Alb.png" class="logoUT" alt="Universitatea Tehnica din Cluj-Napoca">
         <img src="/images/titlu.svg" class="titlu" alt="CodeRun Logo">
         <div class="timer">
             <div class="timebox">
