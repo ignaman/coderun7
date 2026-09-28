@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="descritption" content="The 7th edition of CodeRun. Coming soon. #jointhecoderunners">
     <title>CodeRun</title>
     @vite('resources/css/app.css')
     @vite('resources/js/timer.js')
@@ -18,24 +19,10 @@
         <img src="/images/BESTCJ_signature_white.png" class="logoBEST" alt="BEST Cluj-Napoca">
         <img src="/images/UT_Logo_Alb.png" class="logoUT" alt="Universitatea Tehnica din Cluj-Napoca">
         <img src="/images/titlu.svg" class="titlu" alt="CodeRun Logo">
-        <div class="timer">
-            <div class="timebox">
-                <div class="time">
-                    <h2 id="days">00</h2>
-                    <p>Days</p>
-                </div>
-                <div class="time">
-                    <h2 id="hours">00</h2>
-                    <p>Hours</p>
-                </div>
-                <div class="time">
-                    <h2 id="minutes">00</h2>
-                    <p>Minutes</p>
-                </div>
-                <div class="time">
-                    <h2 id="seconds">00</h2>
-                    <p>Seconds</p>
-                </div>
+        
+                <button class="buttonclass">
+                    <a href="https://github.com/ignaman/coderun7/tree/main/resources/views" target = _blank>REGISTER NOW</a>
+                </button>
             </div>
         </div>
         <img src="/images/calculator1.svg" class="calc1" alt="Calculator1">

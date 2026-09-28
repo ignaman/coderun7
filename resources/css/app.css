@@ -97,7 +97,7 @@ body,
     justify-self: start;
     align-self: start;
     width: min(17vw, var(--vh) * 30);
-    margin: calc(var(--vh) * 2) -24.5vw;
+    margin: calc(var(--vh) * 2) -23.5vw;
     
 }
 .logoUT{
@@ -106,7 +106,7 @@ body,
     justify-self: end;
     align-self: start;
     width: min(13vw, var(--vh) * 23);
-    margin: calc(var(--vh) * 2) -23vw;
+    margin: calc(var(--vh) * 2) -21vw;
     
 }
 
@@ -116,7 +116,58 @@ body,
     justify-self: center;
     width: min(47vw, var(--vh) * 84);
 }
+.buttonclass{
+    --neon-color: #1fd3ffff;
+    grid-column: 2;
+    grid-row: 2;
+    width: 30vw;
+    height: 15vh;
+    place-self: center;
+    position: relative;
+    z-index: 2;
+    border: 0.03em solid rgb(250, 250, 250);
+    border-radius: 0.4em;
+    padding: 0.55em 1.1em;
+    background:
+        radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.32), transparent 28%),
+        radial-gradient(circle at 85% 100%, rgba(130, 78, 228, 0.28), transparent 42%),
+        rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px) saturate(135%);
+    -webkit-backdrop-filter: blur(14px) saturate(135%);
+    box-shadow:
+        0 0 3px #fff,
+        0 0 33px var(--neon-color),
+        0 0 36px var(--neon-color),
+        inset 0 0 21px var(--neon-color),
+        inset 0 1px 0 rgba(255, 255, 255, 0.55),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.18);
+    color: #fff;
+    font-family: 'From the Stars Sb', sans-serif;
+    font-size: clamp(2rem, min(2vw, var(--vh) * 3), 5rem);
+    text-shadow:
+        0 0 2px #fff,
+        0 0 4px #fff,
+        0 0 6px #fff,
+        0 0 15px var(--neon-color),
+        0 0 23px var(--neon-color),
+        0 0 36px var(--neon-color);
+    animation: timebox-pulsate 3s infinite alternate;
+    cursor: pointer;
+}
 
+.buttonclass a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.buttonclass:hover {
+    filter: brightness(1.2);
+}
+
+.buttonclass:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+}
 .timer{
     --num: clamp(1.5rem, min(4vw, var(--vh) * 7.1), 5rem);
     --label: clamp(0.6rem, min(1.4vw, var(--vh) * 2.5), 1.5rem);
