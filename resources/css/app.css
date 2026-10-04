@@ -120,14 +120,16 @@ body,
     --neon-color: #1fd3ffff;
     grid-column: 2;
     grid-row: 2;
-    width: 30vw;
-    height: 15vh;
+    box-sizing: border-box;
+    width: 32vw;
+    height: auto;
     place-self: center;
     position: relative;
     z-index: 2;
+    container-type: inline-size;
     border: 0.03em solid rgb(250, 250, 250);
     border-radius: 0.4em;
-    padding: 0.55em 1.1em;
+    padding: 2vw;
     background:
         radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.32), transparent 28%),
         radial-gradient(circle at 85% 100%, rgba(130, 78, 228, 0.28), transparent 42%),
@@ -143,7 +145,6 @@ body,
         inset 0 -1px 0 rgba(255, 255, 255, 0.18);
     color: #fff;
     font-family: 'From the Stars Sb', sans-serif;
-    font-size: clamp(2rem, min(2vw, var(--vh) * 3), 5rem);
     text-shadow:
         0 0 2px #fff,
         0 0 4px #fff,
@@ -156,8 +157,14 @@ body,
 }
 
 .buttonclass a {
+    display: block;
     color: inherit;
+    font-size: 8vw;
+    font-size: 10cqw;
+    line-height: 1.1;
+    text-align: center;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .buttonclass:hover {
@@ -168,101 +175,8 @@ body,
     outline: 2px solid #fff;
     outline-offset: 4px;
 }
-.timer{
-    --num: clamp(1.5rem, min(4vw, var(--vh) * 7.1), 5rem);
-    --label: clamp(0.6rem, min(1.4vw, var(--vh) * 2.5), 1.5rem);
-    --gap: clamp(0.75rem, min(3vw, var(--vh) * 5.3), 4rem);
-    grid-column: 2;
-    grid-row: 2;
-    align-self: center;
-    margin-bottom: calc(var(--vh) * 6);
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    text-shadow: 0 0 12px rgba(170, 225, 255, 0.55);
-}
 
-.time h2 {
-    font-family: 'From the Stars Sb', sans-serif;
-    font-size: var(--num);
-    font-weight: 500;
-    margin: 0;
-    line-height: 1;
-    letter-spacing: 0.08em;
-}
 
-.timebox{
-    --neon-color: #1fd3ffff;
-    display: flex;
-    gap: var(--gap);
-    align-items: flex-end;
-    justify-content: center;
-    overflow: hidden;
-    border: 0.03em solid rgb(250, 250, 250);
-    border-radius: 0.4em;
-    padding: 0.4em;
-    background:
-        radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.32), transparent 28%),
-        radial-gradient(circle at 85% 100%, rgba(130, 78, 228, 0.28), transparent 42%),
-        rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(14px) saturate(135%);
-    -webkit-backdrop-filter: blur(14px) saturate(135%);
-    text-shadow:
-        0 0 2px #fff,
-        0 0 4px #fff,
-        0 0 6px #fff,
-        0 0 15px var(--neon-color),
-        0 0 23px var(--neon-color),
-        0 0 36px var(--neon-color);
-    box-shadow:
-        0 0 3px #fff,
-        0 0 3px #fff,
-        0 0 33px var(--neon-color),
-        0 0 36px var(--neon-color),
-        inset 0 0 21px var(--neon-color),
-        inset 0 1px 0 rgba(255, 255, 255, 0.55),
-        inset 0 -1px 0 rgba(255, 255, 255, 0.18);
-    animation: timebox-pulsate 3s infinite alternate;
-}
-
-@keyframes timebox-pulsate {
-    0% {
-        text-shadow:
-            0 0 2px #fff,
-            0 0 4px #fff,
-            0 0 6px #fff,
-            0 0 15px var(--neon-color),
-            0 0 23px #ff00ccff,
-            0 0 36px #ff00ccff;
-    }
-
-    100% {
-        text-shadow:
-            0 0 5px #fff,
-            0 0 9px #fff,
-            0 0 18px #fff,
-            0 0 36px #ff00ccff,
-            0 0 49px #ff00ccff,
-            0 0 65px #fff;
-    }
-}
-
-.time{
-    text-align: center;
-    min-width: calc(var(--num) * 1.3);
-}
-
-.time p {
-    margin: 0.45rem 0 0;
-    font-size: var(--label);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.9);
-}
 
 .calc1, .calc2 {
     grid-row: 2;
@@ -304,7 +218,7 @@ body,
 
     .page {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-rows: auto auto 1fr auto;
+        grid-template-rows: auto auto auto 1fr auto;
     }
 
     .logoBEST{
@@ -330,12 +244,24 @@ body,
         margin-top: calc(var(--vh) * 3);
     }
 
+    .buttonclass{
+        grid-column: 1 / -1;
+        grid-row: 4;
+        width: 45vw;
+        height: 10vh;
+        justify-self: center;
+    }
+    
+    .buttonclass a{
+        font-size: 4.5vw;
+    }
+
     .timer{
         --num: clamp(1.75rem, min(11vw, var(--vh) * 6.5), 5rem);
         --label: clamp(0.7rem, min(3.8vw, var(--vh) * 2.2), 1.4rem);
         --gap: clamp(0.5rem, min(5vw, var(--vh) * 3), 3rem);
         grid-column: 1 / -1;
-        grid-row: 3;
+        grid-row: 4;
         margin-bottom: 0;
     }
     .time h2, .time p {
@@ -343,7 +269,7 @@ body,
     }
 
     .calc1 {
-        grid-row: 4;
+        grid-row: 5;
         width: min(41vw, var(--vh) * 22);
     }
     .calc2 {
