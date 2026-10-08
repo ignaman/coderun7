@@ -22,7 +22,7 @@
         <img src="/images/titlu.svg" class="titlu" alt="CodeRun Logo">
         
                 <button class="buttonclass">
-                    <a href="https://github.com/ignaman/coderun7/tree/main/resources/views" target = _blank>REGISTER NOW</a>
+                    <a href="https://forms.gle/khnan4KMLxYYJznt7" target = _blank>REGISTER NOW</a>
                 </button>
             </div>
         </div>
