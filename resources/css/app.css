@@ -1,15 +1,18 @@
 @font-face {
     font-family: 'BlueSakura';
-    src: url('/fonts/BlueSakura.ttf') format('truetype');
+    /* Relative path so Vite bundles the font into public/build (works on any host) */
+    src: url('../fonts/BlueSakura.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'From the Stars Sb';
-    src: url('/fonts/From%20the%20Stars%20Sb.otf') format('opentype');
+    src: url('../fonts/FromTheStarsSb.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 /* Stable viewport height unit: ignores mobile browser toolbars showing/hiding */
@@ -48,7 +51,7 @@ body,
             rgba(124, 57, 230, 0.85) 30%,
             rgba(124, 57, 230, 0) 52%
         ),
-        url('\public\images\bghor1.svg');
+        url('../../public/images/bghor1.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -134,8 +137,9 @@ body,
         radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.32), transparent 28%),
         radial-gradient(circle at 85% 100%, rgba(130, 78, 228, 0.28), transparent 42%),
         rgba(255, 255, 255, 0.08);
+    /* Only the standard property: the build adds the -webkit- prefix itself.
+       Writing both made the build drop the standard one, killing the blur in Chrome. */
     backdrop-filter: blur(14px) saturate(135%);
-    -webkit-backdrop-filter: blur(14px) saturate(135%);
     box-shadow:
         0 0 3px #fff,
         0 0 33px var(--neon-color),
@@ -207,7 +211,7 @@ body,
                 rgba(124, 57, 230, 0.85) 18%,
                 rgba(124, 57, 230, 0) 52%
             ),
-            url('\public\images\bg2vert.svg');
+            url('../../public/images/bg2vert.svg');
     }
 
     .lbloc, .rbloc {
