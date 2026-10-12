@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="descritption" content="The 7th edition of CodeRun. Coming soon. #jointhecoderunners">
-    <link rel="icon" type="image/x-icon" href="/images/titlu.svg">
+    <meta name="description" content="The 7th edition of CodeRun. Coming soon. #jointhecoderunners">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/png" href="/images/favicon-512.png" sizes="512x512">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
     <title>CodeRun</title>
     @vite('resources/css/app.css')
     @vite('resources/js/timer.js')
@@ -26,8 +28,8 @@
                 </button>
             </div>
         </div>
-        <img src="/images/calculator1.svg" class="calc1" alt="Calculator1">
-        <img src="/images/calculator2.svg" class="calc2" alt="Calculator2">
+        <img src="/images/calculator1.svg" class="calc1" alt="">
+        <img src="/images/calculator2.svg" class="calc2" alt="">
     </main>
 </body>
 
