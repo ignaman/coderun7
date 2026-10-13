@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="descritption" content="The 7th edition of CodeRun. Coming soon. #jointhecoderunners">
+    <meta name="description" content="The 7th edition of CodeRun. Coming soon. #jointhecoderunners">
     <link rel="icon" href="/images/titlu.svg">
     <title>CodeRun</title>
     @vite('resources/css/app.css')
