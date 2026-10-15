@@ -46,9 +46,9 @@
     <meta name="twitter:image" content="{{ $twitterImage ?? $ogImage }}">
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" sizes="48x48">
-    <link rel="icon" type="image/png" href="/images/favicon-512.png" sizes="512x512">
-    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico?v=2" sizes="48x48">
+    <link rel="icon" type="image/png" href="/images/favicon-512.png?v=2" sizes="512x512">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=2">
 
     <!-- Tailwind CSS Setup -->
     <script src="https://cdn.tailwindcss.com"></script>
