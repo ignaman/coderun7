@@ -10,7 +10,7 @@
     ];
 @endphp
 
-<header x-data="{ mobileOpen: false }" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200">
+<header x-data="{ mobileOpen: false }" class="sticky top-0 z-50 bg-[#23045c] border-b border-purple-900/60 shadow-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <!-- Brand / Logo Placeholder -->
@@ -23,34 +23,32 @@
             <!-- Desktop Navigation Links -->
             <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
                 @foreach ($navLinks as $link)
-                    <a href="{{ $link['href'] }}" class="px-3 py-1.5 text-xs font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors">
+                    <a href="{{ $link['href'] }}" class="px-3 py-1.5 text-xs font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-md transition-colors">
                         {{ $link['name'] }}
                     </a>
                 @endforeach
 
                 <!-- Separate Page Link: Partners (swapped to come before Contact) -->
-                <a href="/partners" class="px-3 py-1.5 text-xs font-medium rounded-md transition-colors {{ request()->is('partners*') ? 'text-gray-900 bg-gray-100 font-semibold border border-gray-300' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100' }}">
+                <a href="/partners" class="px-3 py-1.5 text-xs font-medium rounded-md transition-colors {{ request()->is('partners*') ? 'text-white bg-white/20 font-semibold border border-white/30' : 'text-white/90 hover:text-white hover:bg-white/10' }}">
                     Partners
                 </a>
 
                 <!-- Contact Anchor Link: Takes directly to Footer (#contact) -->
-                <a href="{{ $isHome ? '#contact' : '/#contact' }}" class="px-3 py-1.5 text-xs font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors">
+                <a href="{{ $isHome ? '#contact' : '/#contact' }}" class="px-3 py-1.5 text-xs font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-md transition-colors">
                     Contact
                 </a>
             </nav>
 
             <!-- Prominent CTA Button -->
             <div class="hidden sm:flex items-center gap-3">
-                <x-button
+                <a
                     href="https://docs.google.com/forms/d/e/1FAIpQLSe3xJz42C0l2jfkKReQB6uPnQyifSRZZt914Q4-773WwAKysQ/viewform?usp=preview"
                     target="_blank"
                     rel="noopener noreferrer"
-                    variant="primary"
-                    size="sm"
-                    class="font-body tracking-normal"
+                    class="group inline-flex items-center justify-center font-body text-xs font-semibold px-4 py-1.5 rounded-full bg-[#23045c] text-white hover:text-[#8b38dc] border-2 border-[#8b38dc] shadow-[0_0_12px_rgba(139,56,220,0.6)] hover:shadow-[0_0_18px_rgba(139,56,220,0.9)] transition-all duration-300 select-none"
                 >
-                    <span>Register Now</span>
-                </x-button>
+                    <span class="transition-colors duration-300">Register Now</span>
+                </a>
             </div>
 
             <!-- Mobile Hamburger Button -->
@@ -58,7 +56,7 @@
                 <button
                     type="button"
                     @click="mobileOpen = !mobileOpen"
-                    class="p-2 rounded-lg border border-gray-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300"
+                    class="p-2 rounded-lg border border-purple-800 text-white/90 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/50"
                     aria-label="Toggle navigation menu"
                 >
                     <svg x-show="!mobileOpen" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -77,13 +75,13 @@
         x-show="mobileOpen"
         x-cloak
         @click.away="mobileOpen = false"
-        class="lg:hidden border-t border-gray-200 bg-white px-4 pt-3 pb-5 space-y-1"
+        class="lg:hidden border-t border-purple-900/60 bg-[#23045c] px-4 pt-3 pb-5 space-y-1"
     >
         @foreach ($navLinks as $link)
             <a
                 href="{{ $link['href'] }}"
                 @click="mobileOpen = false"
-                class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+                class="block px-3 py-2 rounded-md text-sm font-medium text-white/90 hover:text-white hover:bg-white/10"
             >
                 {{ $link['name'] }}
             </a>
@@ -93,7 +91,7 @@
         <a
             href="/partners"
             @click="mobileOpen = false"
-            class="block px-3 py-2 rounded-md text-sm font-medium {{ request()->is('partners*') ? 'text-gray-900 bg-gray-100 font-semibold' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100' }}"
+            class="block px-3 py-2 rounded-md text-sm font-medium {{ request()->is('partners*') ? 'text-white bg-white/20 font-semibold' : 'text-white/90 hover:text-white hover:bg-white/10' }}"
         >
             Partners
         </a>
@@ -102,25 +100,23 @@
         <a
             href="{{ $isHome ? '#contact' : '/#contact' }}"
             @click="mobileOpen = false"
-            class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+            class="block px-3 py-2 rounded-md text-sm font-medium text-white/90 hover:text-white hover:bg-white/10"
         >
             Contact
         </a>
 
-        <div class="pt-3 border-t border-gray-200">
-            <x-button
-                href="https://forms.gle/placeholder"
+        <div class="pt-3 border-t border-purple-900/60">
+            <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSe3xJz42C0l2jfkKReQB6uPnQyifSRZZt914Q4-773WwAKysQ/viewform?usp=preview"
                 target="_blank"
                 rel="noopener noreferrer"
-                variant="primary"
-                size="md"
-                class="w-full justify-center font-body tracking-normal"
+                class="group flex items-center justify-center font-body text-sm font-semibold px-4 py-2.5 rounded-full bg-[#23045c] text-white hover:text-[#8b38dc] border-2 border-[#8b38dc] shadow-[0_0_12px_rgba(139,56,220,0.6)] hover:shadow-[0_0_18px_rgba(139,56,220,0.9)] transition-all duration-300 w-full"
             >
-                <span>Register Now</span>
-                <svg class="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <span class="transition-colors duration-300">Register Now</span>
+                <svg class="w-4 h-4 ml-1.5 transition-colors duration-300 group-hover:text-[#8b38dc]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
-            </x-button>
+            </a>
         </div>
     </div>
 </header>

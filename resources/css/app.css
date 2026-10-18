@@ -51,7 +51,7 @@ body,
             rgba(124, 57, 230, 0.85) 30%,
             rgba(124, 57, 230, 0) 52%
         ),
-        url('../../public/images/bghor1.svg');
+        url('../../public/images/bgsitef.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -211,7 +211,7 @@ body,
                 rgba(124, 57, 230, 0.85) 18%,
                 rgba(124, 57, 230, 0) 52%
             ),
-            url('../../public/images/bg2vert.svg');
+            url('../../public/images/bgtel.svg');
     }
 
     .lbloc, .rbloc {

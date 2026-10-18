@@ -1,18 +1,114 @@
 <x-layout title="CodeRun 2025/2026 - IT Marathon Wireframe">
 
     {{-- ========================================================================= --}}
-    {{-- 1. HERO SECTION (#home) - BLANK SPACE FOR DESIGNS (NO TEXT)               --}}
+    {{-- 1. HERO SECTION (#home)                                                   --}}
     {{-- ========================================================================= --}}
-    <section id="home" class="min-h-[75vh] lg:min-h-[85vh] border-b border-gray-200 bg-white flex items-center justify-center p-4 sm:p-6 lg:p-8">
-        <div class="w-full max-w-7xl h-[550px] lg:h-[700px] border-2 border-dashed border-gray-300 rounded-2xl bg-gray-50 flex items-center justify-center">
-            <!-- Blank Space for Hero Design -->
+    <section id="home" class="relative overflow-visible flex flex-col" style="min-height: 85vh;">
+
+        {{-- ── TOP LOGO BAR ─────────────────────────────────────────────────────── --}}
+        <div class="relative z-10 flex items-center justify-between px-6 sm:px-10 lg:px-16 pt-6 sm:pt-8 mb-4 lg:mb-12">
+
+            {{-- BEST logo – left --}}
+            <img
+                src="/images/BESTCJ_signature_white.png"
+                alt="BEST Cluj-Napoca"
+                class="h-12 sm:h-15 lg:h-24 w-auto object-contain"
+            >
+
+            {{-- code.run; – center --}}
+            <img
+                src="/images/logoCR-white.png"
+                alt="code.run;"
+                class="h-7 sm:h-9 lg:h-11 w-auto object-contain"
+            >
+
+            {{-- Universitatea Tehnica – right --}}
+            <img
+                src="/images/UT_Logo_Alb.png"
+                alt="Universitatea Tehnica din Cluj-Napoca"
+                class="h-12 sm:h-14 lg:h-24 w-auto object-contain"
+            >
         </div>
+
+        {{-- ── DESKTOP LAYOUT (lg+): absolute-positioned three columns ──────────── --}}
+        <div class="hidden lg:block relative flex-1" style="min-height: 68vh;">
+
+            {{-- Register here! – left third, vertically centred --}}
+            <div class="absolute" style="left: 5%; top: 50%; transform: translateY(-50%); width: 28vw; max-width: 400px;">
+                <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSe3xJz42C0l2jfkKReQB6uPnQyifSRZZt914Q4-773WwAKysQ/viewform?usp=preview"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hero-register-btn group w-full"
+                    aria-label="Register here for CodeRun"
+                >
+                    <img
+                        src="/images/buton.svg"
+                        alt="Register here!"
+                        class="w-full h-auto hero-glow-intense"
+                    >
+                </a>
+            </div>
+
+            {{-- Girl character – absolute centre, anchored to bottom --}}
+            <div class="absolute left-1/2 bottom-0" style="transform: translateX(-50%);">
+                <img
+                    src="/images/fatacr.svg"
+                    alt="CodeRun character"
+                    class="w-auto object-contain object-bottom hero-glow-character"
+                    style="height: 62vh; max-height: 580px;"
+                >
+            </div>
+
+            {{-- CodeRun 7 text – right third, vertically centred --}}
+            <div class="absolute" style="right: 4%; top: 50%; transform: translateY(-50%); width: 26vw; max-width: 380px;">
+                <img
+                    src="/images/cr7svg.svg"
+                    alt="CodeRun 7"
+                    class="w-full h-auto hero-glow-intense"
+                >
+            </div>
+        </div>
+
+        {{-- ── MOBILE LAYOUT (<lg): stacked column ──────────────────────────────── --}}
+        <div class="lg:hidden flex flex-col items-center gap-6 pt-4 pb-12 px-6">
+
+            {{-- CodeRun 7 text --}}
+            <img
+                src="/images/cr7svg.svg"
+                alt="CodeRun 7"
+                class="w-full max-w-xs h-auto hero-glow-intense"
+            >
+
+            {{-- Girl character --}}
+            <img
+                src="/images/fatacr.svg"
+                alt="CodeRun character"
+                class="w-44 xs:w-52 sm:w-64 h-auto hero-glow-character"
+            >
+
+            {{-- Register here! --}}
+            <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSe3xJz42C0l2jfkKReQB6uPnQyifSRZZt914Q4-773WwAKysQ/viewform?usp=preview"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hero-register-btn w-full max-w-xs"
+                aria-label="Register here for CodeRun"
+            >
+                <img
+                    src="/images/buton.svg"
+                    alt="Register here!"
+                    class="w-full h-auto hero-glow-intense"
+                >
+            </a>
+        </div>
+
     </section>
 
     {{-- ========================================================================= --}}
     {{-- 2. ABOUT CODERUN (#about)                                                 --}}
     {{-- ========================================================================= --}}
-    <section id="about" class="py-16 lg:py-24 border-b border-gray-200 bg-gray-50/40">
+    <section id="about" class="py-16 lg:py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <x-section-heading
                 title="About"
@@ -43,11 +139,11 @@
             <!-- Video Section -->
             <div class="w-full max-w-4xl mx-auto">
                 <div class="text-center mb-6 sm:mb-8">
-                    <h3 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 font-title tracking-normal">
+                    <h3 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-white font-bluesakura tracking-normal shadow-pink-glow leading-none">
                         CodeRun Moments
                     </h3>
                 </div>
-                <div class="aspect-video w-full flex items-center justify-center relative overflow-hidden shadow-xs">
+                <div class="aspect-video w-full flex items-center justify-center relative overflow-hidden rounded-2xl shadow-2xl border border-white/20 bg-black/40">
                     <!-- YouTube video iframe container -->
                     <video 
                         class="w-full h-full object-cover rounded-2xl" 
@@ -58,6 +154,7 @@
                         <source src="/video-stream" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
+                </div>
             </div>
         </div>
     </section>
@@ -65,7 +162,7 @@
     {{-- ========================================================================= --}}
     {{-- 3. HOW IT WORKS / GUIDELINES (#how-it-works)                              --}}
     {{-- ========================================================================= --}}
-    <section id="how-it-works" class="py-16 lg:py-24 border-b border-gray-200 bg-white">
+    <section id="how-it-works" class="py-16 lg:py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <x-section-heading
                 title="How It Works"
@@ -73,25 +170,24 @@
             />
 
             <!-- Route & Checkpoints Progression -->
-            <div class="mb-16 border border-gray-200 rounded-2xl p-6 sm:p-8 bg-gray-50/50">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <div class="bg-white border border-gray-200 rounded-xl p-6 flex flex-col justify-between shadow-xs">
+            <div class="mb-16 space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                    <div class="card-glow rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:-translate-y-1 transition-all duration-300">
                         <div>
-                            
-                            <h4 class="text-base sm:text-lg font-semibold text-gray-900 mt-3">2-13 November - The Training Phase</h4>
-                            <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+                            <span class="inline-block text-[11px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded bg-purple-900/60 text-purple-200 border border-purple-500/40 mb-2 font-semibold">Phase 1</span>
+                            <h4 class="text-xl sm:text-2xl font-bold italic text-white font-script tracking-wide drop-shadow-[0_0_10px_rgba(183,4,255,0.7)] mt-1">2-13 November - The Training Phase</h4>
+                            <p class="text-sm sm:text-base text-gray-200/90 mt-3 leading-relaxed font-body">
                                 Level up before the main event. Dive deep into intensive, specialized sessions delivered directly by our top-tier IT partner companies and 
                                 professors from university. This is your chance to gain exclusive industry insights, master new technical skills, 
                                 and build the ultimate toolkit you’ll need to crush the competition. 
-
                             </p>
                         </div>
                     </div>
-                    <div class="bg-white border border-gray-200 rounded-xl p-6 flex flex-col justify-between shadow-xs">
+                    <div class="card-glow rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:-translate-y-1 transition-all duration-300">
                         <div>
-                            
-                            <h4 class="text-base sm:text-lg font-semibold text-gray-900 mt-3">14-15 November - The Competition</h4>
-                            <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+                            <span class="inline-block text-[11px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded bg-purple-900/60 text-purple-200 border border-purple-500/40 mb-2 font-semibold">Phase 2</span>
+                            <h4 class="text-xl sm:text-2xl font-bold italic text-white font-script tracking-wide drop-shadow-[0_0_10px_rgba(183,4,255,0.7)] mt-1">14-15 November - The Competition</h4>
+                            <p class="text-sm sm:text-base text-gray-200/90 mt-3 leading-relaxed font-body">
                                 It’s time to show what you’re made of. Hit the streets, navigate your way through the city, and conquer a series of high-stakes checkpoints designed by our associates. 
                                 Expect fast-paced coding challenges, real-time problem-solving, and networking on the move.
                                 Take on the challenge solo and let us match you with the perfect crew, or bring two teammates to form an unstoppable trio.
@@ -101,19 +197,18 @@
                 </div>
 
                 <!-- Guidelines PDF Viewer (replaces route map diagram) -->
-                <div class="w-full h-[600px] lg:h-[750px] border border-gray-300 rounded-xl overflow-hidden bg-white shadow-xs flex flex-col">
-                    <div class="px-4 py-2.5 bg-gray-100 border-b border-gray-200 flex items-center justify-between text-xs font-mono text-gray-700">
+                <div class="w-full h-[600px] lg:h-[750px] card-glow rounded-2xl overflow-hidden flex flex-col">
+                    <div class="px-4 py-2.5 bg-[#3d099c] border-b border-purple-800/60 flex items-center justify-between text-xs font-mono text-gray-200">
                         <span class="font-semibold flex items-center gap-2">
-                            <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-4 h-4 text-purple-300" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
                             </svg>
-                            
                         </span>
                         <a 
                             href="/documents/CodeRun%20Guidelines%20for%20Participants%20-%20English.pdf" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            class="text-gray-600 hover:text-gray-900 underline flex items-center gap-1 font-body"
+                            class="text-purple-200 hover:text-white underline flex items-center gap-1 font-body transition-colors"
                         >
                             <span>Open in new tab</span>
                             <span>↗</span>
@@ -121,12 +216,12 @@
                     </div>
                     <iframe 
                         src="/documents/CodeRun%20Guidelines%20for%20Participants%20-%20English.pdf#toolbar=1" 
-                        class="w-full flex-grow border-0" 
+                        class="w-full flex-grow border-0 bg-white" 
                         title="CodeRun Guidelines for Participants"
                     >
                         <p class="p-6 text-center text-sm text-gray-600 font-body">
                             Your browser does not support inline PDF viewing. 
-                            <a href="/documents/CodeRun%20Guidelines%20for%20Participants%20-%20English.pdf" target="_blank" class="text-gray-900 underline">
+                            <a href="/documents/CodeRun%20Guidelines%20for%20Participants%20-%20English.pdf" target="_blank" class="text-purple-900 underline">
                                 Download the PDF here
                             </a>.
                         </p>
@@ -140,16 +235,16 @@
                     <!-- Easy Track -->
                     <x-card title="Easy Track Example">
                         <div class="space-y-4">
-                            <p class="text-sm text-gray-600">
+                            <p class="text-sm sm:text-base text-gray-200/90 font-body">
                                 Text utility with RLE compression.
                             </p>
-                            <p class="text-sm text-gray-600">
+                            <p class="text-sm sm:text-base text-gray-200/90 font-body">
                                 -Implement the compression and decompression functions.
                             </p>
-                            <p class="text-sm text-gray-600">
+                            <p class="text-sm sm:text-base text-gray-200/90 font-body">
                                 -User interface using HTML, CSS & JS.
                             </p>
-                            <p class="text-sm text-gray-600">
+                            <p class="text-sm sm:text-base text-gray-200/90 font-body">
                                 -Document your code.
                             </p>
                         </div>
@@ -158,16 +253,16 @@
                     <!-- Hard Track -->
                     <x-card title="Hard Track Example">
                         <div class="space-y-4">
-                            <p class="text-sm text-gray-600">
+                            <p class="text-sm sm:text-base text-gray-200/90 font-body">
                                 -Implement the compression and decompression functions (same as Easy Track).
                             </p>
-                            <p class="text-sm text-gray-600">
+                            <p class="text-sm sm:text-base text-gray-200/90 font-body">
                                 -User interface using ReactJS.
                             </p>
-                            <p class="text-sm text-gray-600">
+                            <p class="text-sm sm:text-base text-gray-200/90 font-body">
                                 -Compression and decompression supports special characters (emojis, etc.).
                             </p>
-                            <p class="text-sm text-gray-600">
+                            <p class="text-sm sm:text-base text-gray-200/90 font-body">
                                 -Option to load text by uploading a file.
                             </p>
                         </div>
@@ -180,7 +275,7 @@
     {{-- ========================================================================= --}}
     {{-- 4. PROGRAM / TIMELINE (#program)                                          --}}
     {{-- ========================================================================= --}}
-    <section id="program" class="py-16 lg:py-24 border-b border-gray-200 bg-gray-50/40">
+    <section id="program" class="py-16 lg:py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <x-section-heading
                 title="Schedule"
@@ -192,7 +287,7 @@
     {{-- ========================================================================= --}}
     {{-- 5. PRIZES (#prizes) - (EXTRA PERKS SECTION REMOVED)                       --}}
     {{-- ========================================================================= --}}
-    <section id="prizes" class="py-16 lg:py-24 border-b border-gray-200 bg-white">
+    <section id="prizes" class="py-16 lg:py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <x-section-heading
                 title="Prizes"
@@ -204,7 +299,7 @@
     {{-- ========================================================================= --}}
     {{-- 6. FAQ (#faq)                                                             --}}
     {{-- ========================================================================= --}}
-    <section id="faq" class="py-16 lg:py-24 border-b border-gray-200 bg-white">
+    <section id="faq" class="py-16 lg:py-24 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <x-section-heading
                 title="FAQ"
