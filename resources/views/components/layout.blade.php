@@ -1,10 +1,10 @@
 @props([
-    'title' => 'CodeRun - IT Marathon',
-    'description' => 'Site oficial CodeRun - Cea mai mare competiție de programare din România. Hackathon & IT marathon organizat de BEST Cluj-Napoca.',
+    'title' => 'CodeRun',
+    'description' => 'The 7th edition of CodeRun. By BEST Cluj-Napoca',
     'keywords' => 'programare, competiție, coding, hackathon, IT marathon, Cluj-Napoca, BEST Cluj-Napoca, UTCN, student challenge',
     'author' => 'BEST Cluj-Napoca',
     'robots' => 'index, follow',
-    'ogTitle' => null,
+    'ogTitle' => 'CodeRun',
     'ogDescription' => null,
     'ogType' => 'website',
     'ogUrl' => null,
@@ -19,11 +19,20 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JKXX9WDBB1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JKXX9WDBB1');
+</script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Standard SEO Metadata -->
-    <title>{{ $title }}</title>
+    <title>CodeRun</title>
     <meta name="description" content="{{ $description }}">
     <meta name="keywords" content="{{ $keywords }}">
     <meta name="author" content="{{ $author }}">
@@ -58,8 +67,8 @@
                 extend: {
                     fontFamily: {
                         title: ["'BlueSakura'", 'sans-serif'],
-                        body: ["'From the Stars Sb It'", 'sans-serif'],
-                        sans: ["'From the Stars Sb It'", 'sans-serif'],
+                        body: ["'From the Stars Sb'", 'sans-serif'],
+                        sans: ["'From the Stars Sb'", 'sans-serif'],
                     },
                     colors: {
                         wireframe: {
@@ -102,8 +111,17 @@
             font-display: swap;
         }
 
+        @font-face {
+            font-family: 'From the Stars Sb';
+            src: url('/fonts/From%20the%20Stars%20Sb.otf') format('opentype'),
+                 url('/fonts/From the Stars Sb.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
         body {
-            font-family: 'From the Stars Sb It', sans-serif;
+            font-family: 'From the Stars Sb', sans-serif;
         }
 
         h1, h2, .font-title {

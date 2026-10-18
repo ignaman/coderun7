@@ -4,7 +4,7 @@
         ['name' => 'Home', 'href' => $isHome ? '#home' : '/#home'],
         ['name' => 'About', 'href' => $isHome ? '#about' : '/#about'],
         ['name' => 'How it works', 'href' => $isHome ? '#how-it-works' : '/#how-it-works'],
-        ['name' => 'Program', 'href' => $isHome ? '#program' : '/#program'],
+        ['name' => 'Schedule', 'href' => $isHome ? '#program' : '/#program'],
         ['name' => 'Prizes', 'href' => $isHome ? '#prizes' : '/#prizes'],
         ['name' => 'FAQ', 'href' => $isHome ? '#faq' : '/#faq'],
     ];
@@ -15,10 +15,8 @@
         <div class="flex items-center justify-between h-16">
             <!-- Brand / Logo Placeholder -->
             <div class="flex items-center">
-                <a href="{{ $isHome ? '#home' : '/' }}" class="flex items-center gap-3 group">
-                    <div class="h-9 px-3 border-2 border-dashed border-gray-400 bg-gray-50 flex items-center justify-center rounded text-xs font-mono font-semibold text-gray-800 group-hover:border-gray-900 group-hover:bg-gray-100 transition-colors">
-                        [Logo: CodeRun]
-                    </div>
+                <a href="{{ $isHome ? '#home' : '/' }}" class="flex items-center group">
+                    <img src="/images/titlu.svg" alt="CodeRun Logo" class="h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105">
                 </a>
             </div>
 
@@ -44,17 +42,14 @@
             <!-- Prominent CTA Button -->
             <div class="hidden sm:flex items-center gap-3">
                 <x-button
-                    href="https://forms.gle/placeholder"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSe3xJz42C0l2jfkKReQB6uPnQyifSRZZt914Q4-773WwAKysQ/viewform?usp=preview"
                     target="_blank"
                     rel="noopener noreferrer"
                     variant="primary"
                     size="sm"
-                    class="font-mono"
+                    class="font-body tracking-normal"
                 >
-                    <span>Register</span>
-                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
+                    <span>Register Now</span>
                 </x-button>
             </div>
 
@@ -119,7 +114,7 @@
                 rel="noopener noreferrer"
                 variant="primary"
                 size="md"
-                class="w-full justify-center font-mono"
+                class="w-full justify-center font-body tracking-normal"
             >
                 <span>Register Now</span>
                 <svg class="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
