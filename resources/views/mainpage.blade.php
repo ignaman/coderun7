@@ -33,8 +33,18 @@
         {{-- ── DESKTOP LAYOUT (lg+): absolute-positioned three columns ──────────── --}}
         <div class="hidden lg:block relative flex-1" style="min-height: 68vh;">
 
-            {{-- Register here! – left third, vertically centred --}}
-            <div class="absolute" style="left: 5%; top: 50%; transform: translateY(-50%); width: 28vw; max-width: 400px;">
+            {{-- Girl character – left third, anchored to bottom --}}
+            <div class="absolute bottom-0" style="left: 18%; transform: translateX(-50%);">
+                <img
+                    src="/images/fatacr.svg"
+                    alt="CodeRun character"
+                    class="w-auto object-contain object-bottom hero-glow-character"
+                    style="height: 62vh; max-height: 580px;"
+                >
+            </div>
+
+            {{-- Register here! – absolute centre, vertically centred --}}
+            <div class="absolute" style="left: 50%; top: 50%; transform: translate(-50%, -50%); width: 28vw; max-width: 400px;">
                 <a
                     href="https://docs.google.com/forms/d/e/1FAIpQLSe3xJz42C0l2jfkKReQB6uPnQyifSRZZt914Q4-773WwAKysQ/viewform?usp=preview"
                     target="_blank"
@@ -48,16 +58,6 @@
                         class="w-full h-auto hero-glow-intense"
                     >
                 </a>
-            </div>
-
-            {{-- Girl character – absolute centre, anchored to bottom --}}
-            <div class="absolute left-1/2 bottom-0" style="transform: translateX(-50%);">
-                <img
-                    src="/images/fatacr.svg"
-                    alt="CodeRun character"
-                    class="w-auto object-contain object-bottom hero-glow-character"
-                    style="height: 62vh; max-height: 580px;"
-                >
             </div>
 
             {{-- CodeRun 7 text – right third, vertically centred --}}
@@ -80,13 +80,6 @@
                 class="w-full max-w-xs h-auto hero-glow-intense"
             >
 
-            {{-- Girl character --}}
-            <img
-                src="/images/fatacr.svg"
-                alt="CodeRun character"
-                class="w-44 xs:w-52 sm:w-64 h-auto hero-glow-character"
-            >
-
             {{-- Register here! --}}
             <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSe3xJz42C0l2jfkKReQB6uPnQyifSRZZt914Q4-773WwAKysQ/viewform?usp=preview"
@@ -101,6 +94,13 @@
                     class="w-full h-auto hero-glow-intense"
                 >
             </a>
+
+            {{-- Girl character --}}
+            <img
+                src="/images/fatacr.svg"
+                alt="CodeRun character"
+                class="w-44 xs:w-52 sm:w-64 h-auto hero-glow-character"
+            >
         </div>
 
     </section>
@@ -144,17 +144,36 @@
                     </h3>
                 </div>
                 <div class="aspect-video w-full flex items-center justify-center relative overflow-hidden rounded-2xl shadow-2xl border border-white/20 bg-black/40">
-                    <!-- YouTube video iframe container -->
                     <video 
+                        id="coderun-moments-video"
                         class="w-full h-full object-cover rounded-2xl" 
                         controls 
+                        autoplay
+                        muted
+                        loop
                         playsinline 
-                        preload="metadata"
+                        preload="auto"
                         poster="/images/video-poster.jpg">
+                        <source src="/videos/coderun_moments.mp4" type="video/mp4">
                         <source src="/video-stream" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
+                <script>
+                    (function() {
+                        const initVideo = function() {
+                            const video = document.getElementById('coderun-moments-video');
+                            if (video) {
+                                video.play().catch(function() {});
+                            }
+                        };
+                        if (document.readyState === 'loading') {
+                            document.addEventListener('DOMContentLoaded', initVideo);
+                        } else {
+                            initVideo();
+                        }
+                    })();
+                </script>
             </div>
         </div>
     </section>
@@ -196,13 +215,36 @@
                     </div>
                 </div>
 
-                <!-- Guidelines PDF Viewer (replaces route map diagram) -->
-                <div class="w-full h-[600px] lg:h-[750px] card-glow rounded-2xl overflow-hidden flex flex-col">
+                <!-- Guidelines Section Header -->
+                <div class="pt-8 sm:pt-12 pb-2">
+                    <x-section-heading
+                        title="Participant Guidelines"
+                        class="!mb-0"
+                    />
+                </div>
+
+                <!-- Mobile: Download Guidelines Button -->
+                <div class="md:hidden w-full card-glow rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-center text-center space-y-4">
+                    <a 
+                        href="/documents/CodeRun%20Guidelines%20for%20Participants%20-%20English.pdf" 
+                        download="CodeRun Guidelines for Participants - English.pdf"
+                        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-base font-bold rounded-xl text-white bg-gradient-to-r from-[#7A0BC0] to-[#FA58B6] hover:from-[#6608A3] hover:to-[#E5429F] border-2 border-white shadow-[0_0_20px_rgba(250,88,182,0.6)] active:scale-95 transition-all duration-300 font-body"
+                    >
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        <span>Download Guidelines</span>
+                    </a>
+                </div>
+
+                <!-- Desktop: Guidelines PDF Viewer -->
+                <div class="hidden md:flex w-full h-[600px] lg:h-[750px] card-glow rounded-2xl overflow-hidden flex-col">
                     <div class="px-4 py-2.5 bg-[#3d099c] border-b border-purple-800/60 flex items-center justify-between text-xs font-mono text-gray-200">
                         <span class="font-semibold flex items-center gap-2">
                             <svg class="w-4 h-4 text-purple-300" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
                             </svg>
+                            <span>CodeRun Guidelines.pdf</span>
                         </span>
                         <a 
                             href="/documents/CodeRun%20Guidelines%20for%20Participants%20-%20English.pdf" 
@@ -221,9 +263,16 @@
                     >
                         <p class="p-6 text-center text-sm text-gray-600 font-body">
                             Your browser does not support inline PDF viewing. 
-                            <a href="/documents/CodeRun%20Guidelines%20for%20Participants%20-%20English.pdf" target="_blank" class="text-purple-900 underline">
-                                Download the PDF here
-                            </a>.
+                            <a 
+                                href="/documents/CodeRun%20Guidelines%20for%20Participants%20-%20English.pdf" 
+                                download="CodeRun Guidelines for Participants - English.pdf"
+                                class="inline-flex items-center gap-2 px-4 py-2 mt-2 rounded-lg bg-purple-700 text-white font-semibold hover:bg-purple-800 transition-colors"
+                            >
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                                <span>Download Guidelines</span>
+                            </a>
                         </p>
                     </iframe>
                 </div>

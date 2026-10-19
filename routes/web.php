@@ -11,7 +11,7 @@ Route::get('/partners', function () {
 });
 
 Route::get('/video-stream', function () {
-    $path = public_path('videos/video-orizontal.mp4');
+    $path = public_path('videos/coderun_moments.mp4');
     if (!file_exists($path)) {
         abort(404);
     }

@@ -29,7 +29,9 @@
   gtag('config', 'G-JKXX9WDBB1');
 </script>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#23045c">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Standard SEO Metadata -->
     <title>CodeRun</title>
@@ -131,8 +133,14 @@
             font-display: swap;
         }
 
+        html {
+            background-color: #23045c;
+        }
+
         body {
             font-family: 'From the Stars Sb', sans-serif;
+            background-color: transparent !important;
+            min-height: 100vh;
         }
 
         .font-bluesakura {
@@ -156,11 +164,15 @@
         /* Static Fullscreen Background Layer */
         .site-static-bg {
             position: fixed;
-            inset: 0;
-            width: 100vw;
-            height: 100vh;
-            height: 100dvh;
-            z-index: -10;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            min-height: 100lvh;
+            z-index: 0;
             pointer-events: none;
             overflow: hidden;
             background-repeat: no-repeat;
@@ -174,6 +186,7 @@
         @media (orientation: portrait) and (max-width: 1024px) {
             .site-static-bg {
                 background-image: url('/images/bgtel.svg');
+                background-position: center top;
             }
         }
 
@@ -205,27 +218,47 @@
             }
         }
 
-        /* Register Button - Solid Navbar-Color Contour (#23045c) & Button Shape */
+        /* Register Button - Solid White Contour, 3D Elevation & Button Shape */
         .hero-register-btn {
             display: block;
-            border: 3.5px solid #23045c;
+            border: 3.5px solid #ffffff;
             border-radius: 1.5rem;
-            background-color: rgba(35, 4, 92, 0.55);
+            background-color: rgba(35, 4, 92, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             padding: 0.5rem 1rem;
-            box-shadow: 0 4px 16px rgba(35, 4, 92, 0.5);
+            box-shadow: 
+                0 10px 25px -2px rgba(0, 0, 0, 0.75),
+                0 18px 42px -4px rgba(20, 2, 55, 0.85),
+                0 0 22px rgba(240, 99, 255, 0.4),
+                inset 0 2px 4px rgba(255, 255, 255, 0.4),
+                inset 0 -4px 10px rgba(0, 0, 0, 0.6);
+            transform: translateY(0);
             transform-origin: center center;
             transition: transform 0.25s ease-out, background-color 0.25s ease-out, box-shadow 0.25s ease-out;
             cursor: pointer;
         }
 
         .hero-register-btn:hover {
-            transform: scale(1.04);
-            background-color: rgba(35, 4, 92, 0.85);
-            box-shadow: 0 6px 22px rgba(35, 4, 92, 0.75);
+            transform: translateY(-4px) scale(1.04);
+            background-color: rgba(35, 4, 92, 0.9);
+            box-shadow: 
+                0 16px 35px -2px rgba(0, 0, 0, 0.85),
+                0 28px 58px -4px rgba(20, 2, 55, 0.95),
+                0 0 35px rgba(240, 99, 255, 0.65),
+                0 0 55px rgba(183, 4, 255, 0.45),
+                inset 0 2px 5px rgba(255, 255, 255, 0.5),
+                inset 0 -4px 12px rgba(0, 0, 0, 0.7);
         }
 
         .hero-register-btn:active {
-            transform: scale(0.98);
+            transform: translateY(2px) scale(0.99);
+            box-shadow: 
+                0 4px 14px rgba(0, 0, 0, 0.7),
+                0 8px 20px rgba(20, 2, 55, 0.75),
+                0 0 15px rgba(240, 99, 255, 0.35),
+                inset 0 1px 2px rgba(255, 255, 255, 0.3),
+                inset 0 -2px 6px rgba(0, 0, 0, 0.6);
         }
 
         .hero-register-btn:hover .hero-glow-intense {
@@ -239,6 +272,12 @@
                 border-width: 3px;
                 border-radius: 1.25rem;
                 padding: 0.4rem 0.85rem;
+                box-shadow: 
+                    0 8px 20px -2px rgba(0, 0, 0, 0.7),
+                    0 14px 32px -4px rgba(20, 2, 55, 0.8),
+                    0 0 18px rgba(240, 99, 255, 0.35),
+                    inset 0 1.5px 3px rgba(255, 255, 255, 0.35),
+                    inset 0 -3px 8px rgba(0, 0, 0, 0.55);
             }
         }
 
@@ -304,7 +343,7 @@
     <x-navbar />
 
     <!-- Main Content Slot -->
-    <main class="flex-grow">
+    <main class="flex-grow relative z-10">
         {{ $slot }}
     </main>
 
