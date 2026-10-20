@@ -18,25 +18,42 @@
             @php
                 $partnerLogos = [
                     [
+                        'src' => '/images/UNIQA_SoftwareServices_V1_1C_neg.svg', 
+                        'alt' => 'UNIQA Software Services',
+                    ],
+                    [
+                        'src' => '/images/Globant-White-Green.svg', 
+                        'alt' => 'Globant',
+                    ],
+                    [
                         'src' => '/images/BMW_TechWorks_Romania_white_RGB.png', 
                         'alt' => 'BMW TechWorks Romania',
                         'padding' => 'p-4 sm:p-6 lg:p-7',
                         'imgClass' => 'w-[96%] sm:w-[94%] lg:w-[92%] max-h-32 sm:max-h-36 lg:max-h-40',
                     ],
-                    ['src' => '/images/Globant-White-Green.svg', 'alt' => 'Globant'],
-                    ['src' => '/images/UNIQA_SoftwareServices_V1_1C_neg.svg', 'alt' => 'UNIQA Software Services'],
-                    ['src' => '/images/SeeUS.jpg', 'alt' => 'SeeUS Work & Travel'],
+                    [
+                        'src' => '/images/SeeUS.jpg', 
+                        'alt' => 'SeeUS Work & Travel',
+                    ],
+                    [
+                        'src' => '/images/robotics-ai.jpeg', 
+                        'alt' => 'Robotics AI',
+                        'padding' => 'p-6 sm:p-8',
+                        'imgClass' => 'w-[92%] sm:w-[88%] max-h-24 sm:max-h-28 mix-blend-screen',
+                        'style' => 'mix-blend-mode: screen;',
+                    ],
                 ];
             @endphp
 
             <!-- Partner Cards (2 on each row) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto">
                 @foreach ($partnerLogos as $logo)
-                    <div class="h-60 sm:h-68 lg:h-72 partner-card-glow rounded-2xl flex items-center justify-center {{ $logo['padding'] ?? 'p-8 sm:p-12' }} hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="h-60 sm:h-68 lg:h-72 partner-card-glow rounded-2xl flex items-center justify-center {{ $logo['padding'] ?? 'p-8 sm:p-12' }} hover:-translate-y-1 transition-all duration-300 group {{ ($loop->last && $loop->count % 2 !== 0) ? 'md:col-span-2 md:max-w-[492px] md:w-full md:mx-auto' : '' }}">
                         <img 
                             src="{{ $logo['src'] }}" 
                             alt="{{ $logo['alt'] }}" 
                             class="{{ $logo['imgClass'] ?? 'max-h-24 sm:max-h-28 lg:max-h-32 w-auto max-w-[85%]' }} object-contain transition-transform duration-300 group-hover:scale-105 {{ !empty($logo['invert']) ? 'brightness-0 invert' : '' }}"
+                            @if (!empty($logo['style'])) style="{{ $logo['style'] }}" @endif
                         >
                     </div>
                 @endforeach
