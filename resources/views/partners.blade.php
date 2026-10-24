@@ -34,12 +34,21 @@
                     [
                         'src' => '/images/SeeUS.jpg', 
                         'alt' => 'SeeUS Work & Travel',
+                        'padding' => 'p-6 sm:p-8',
+                        'imgClass' => 'max-h-32 sm:max-h-36 lg:max-h-40 w-auto max-w-[92%]',
                     ],
                     [
                         'src' => '/images/robotics-ai.jpeg', 
                         'alt' => 'Robotics AI',
                         'padding' => 'p-6 sm:p-8',
                         'imgClass' => 'w-[92%] sm:w-[88%] max-h-24 sm:max-h-28 mix-blend-screen',
+                        'style' => 'mix-blend-mode: screen;',
+                    ],
+                    [
+                        'src' => '/images/The_Rage_Room.jpg',
+                        'alt' => 'The Rage Room',
+                        'padding' => 'p-4 sm:p-6',
+                        'imgClass' => 'max-h-40 sm:max-h-48 lg:max-h-52 w-auto max-w-[85%] mix-blend-screen',
                         'style' => 'mix-blend-mode: screen;',
                     ],
                 ];
