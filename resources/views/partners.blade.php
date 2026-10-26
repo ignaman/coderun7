@@ -18,8 +18,10 @@
             @php
                 $partnerLogos = [
                     [
-                        'src' => '/images/UNIQA_SoftwareServices_V1_1C_neg.svg', 
+                        'src' => '/images/UNIQA_GroupServices_4C_blue.svg', 
                         'alt' => 'UNIQA Software Services',
+                        'padding' => 'p-4 sm:p-6 lg:p-7',
+                        'imgClass' => 'w-[100%] sm:w-[94%] lg:w-[100%] max-h-32 sm:max-h-36 lg:max-h-40',
                     ],
                     [
                         'src' => '/images/Globant-White-Green.svg', 
