@@ -325,11 +325,120 @@
     {{-- 4. PROGRAM / TIMELINE (#program)                                          --}}
     {{-- ========================================================================= --}}
     <section id="program" class="py-16 lg:py-24 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <x-section-heading
                 title="Schedule"
-                subtitle="Coming soon!"
             />
+
+            @php
+                $scheduleEvents = [
+                    [
+                        'date' => 'Tuesday, 3 Nov',
+                        'time' => '18:00 - 20:00',
+                        'title' => 'ROS Based Robot Perception & Navigation',
+                        'speaker' => 'Levente Tamas',
+                        'isCompetition' => false,
+                    ],
+                    [
+                        'date' => 'Thursday, 5 Nov',
+                        'time' => '18:00 - 20:00',
+                        'title' => 'System Design via Python & Django',
+                        'speaker' => 'Imi Mali',
+                        'isCompetition' => false,
+                    ],
+                    [
+                        'date' => 'Tuesday, 10 Nov',
+                        'time' => '16:00 - 18:00',
+                        'title' => 'Beginning 2D Game Programming with SDL3',
+                        'speaker' => 'Adrian Sabou',
+                        'isCompetition' => false,
+                    ],
+                    [
+                        'date' => 'Wednesday, 11 Nov',
+                        'time' => '17:00 - 19:00',
+                        'title' => 'AI Agents & Identity Management',
+                        'speaker' => 'UNIQA',
+                        'isCompetition' => false,
+                    ],
+                    [
+                        'date' => 'Thursday, 12 Nov',
+                        'time' => '18:00 - 20:00',
+                        'title' => 'Escape the Cloud',
+                        'speaker' => 'GDG',
+                        'isCompetition' => false,
+                    ],
+                    [
+                        'date' => 'Thursday, 12 Nov',
+                        'time' => '20:00 - 23:00',
+                        'title' => 'Social activity',
+                        'speaker' => 'BEST',
+                        'isCompetition' => false,
+                    ],
+                    [
+                        'date' => 'Saturday, Sunday · 14-15 Nov',
+                        'time' => 'All Weekend',
+                        'title' => 'Competition',
+                        'speaker' => null,
+                        'isCompetition' => true,
+                    ],
+                ];
+            @endphp
+
+            <!-- Timeline Progression (Vertical Path with Dotted Running Trail) -->
+            <div class="relative mt-12 pl-6 sm:pl-10">
+                <!-- Dotted running trail line connecting bullet points -->
+                <div class="absolute left-[13px] sm:left-[21px] top-6 bottom-6 w-0 border-l-2 border-dotted border-purple-400/60 pointer-events-none"></div>
+
+                <div class="space-y-6 sm:space-y-8">
+                    @foreach ($scheduleEvents as $event)
+                        <div class="relative flex items-start group">
+                            <!-- Bullet Point Node (Runner's checkpoint milestone) -->
+                            <div class="absolute -left-6 sm:-left-10 top-6 -translate-x-1/2 flex items-center justify-center">
+                                <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#23045c] border-2 border-purple-300 shadow-[0_0_12px_rgba(240,99,255,0.7)] group-hover:scale-125 group-hover:border-pink-300 group-hover:shadow-[0_0_18px_rgba(240,99,255,0.95)] transition-all duration-300 flex items-center justify-center">
+                                    <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-purple-200 group-hover:bg-pink-200 transition-colors"></div>
+                                </div>
+                            </div>
+
+                            <!-- Schedule Card (Matches the other cards styling via card-glow) -->
+                            <div class="w-full">
+                                <div class="card-glow rounded-2xl p-6 sm:p-7 flex flex-col justify-between hover:-translate-y-1 transition-all duration-300">
+                                    <!-- Card Header: Date & Time Badges -->
+                                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                                        <!-- Date Badge -->
+                                        <span class="inline-flex items-center text-xs font-mono font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-purple-900/60 text-purple-200 border border-purple-500/40">
+                                            {{ $event['date'] }}
+                                        </span>
+
+                                        <!-- Time Badge -->
+                                        @if (!empty($event['time']))
+                                            <span class="inline-flex items-center text-xs font-mono text-gray-300 px-2.5 py-0.5 rounded bg-black/30 border border-purple-500/20">
+                                                {{ $event['time'] }}
+                                            </span>
+                                        @endif
+                                    </div>
+
+                                    <!-- Event Title -->
+                                    <h4 class="text-xl sm:text-2xl font-bold italic text-white font-script tracking-wide drop-shadow-[0_0_10px_rgba(183,4,255,0.7)] mt-1">
+                                        {{ $event['title'] }}
+                                    </h4>
+
+                                    <!-- Speaker / Presenter -->
+                                    @if (!empty($event['speaker']))
+                                        <div class="mt-4 pt-3 border-t border-purple-500/20 flex items-center justify-between">
+                                            <span class="text-xs font-mono uppercase tracking-wider text-purple-300/80">
+                                                
+                                            </span>
+                                            <span class="text-sm sm:text-base font-semibold text-white font-body px-2.5 py-1 rounded-lg bg-purple-950/50 border border-purple-500/30">
+                                                by {{ $event['speaker'] }}
+                                            </span>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </section>
 
